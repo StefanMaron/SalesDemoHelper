@@ -5,13 +5,13 @@ codeunit 75021 "SDH Item Data Generator"
         Item: Record Item;
         SDHItemGenerate: Record "SDH Item Generate";
         SDHUtilities: Codeunit "SDH Utilities";
-        LibraryInventory: Codeunit "Library - Inventory";
+        LibraryInventory: Codeunit "SDH Library - Inventory";
         JournalTemplate: Code[10];
         JournalBatch: Code[10];
         NextDate: Date;
         SafetyCounter: Integer;
     begin
-        if SDHItemGenerate.FindFirst() then
+        if SDHItemGenerate.FindSet() then
             repeat
                 if SDHItemGenerate."Item No." <> '' then begin
                     if not Item.Get(SDHItemGenerate."Item No.") then begin
@@ -45,7 +45,7 @@ codeunit 75021 "SDH Item Data Generator"
     local procedure GenerateItem(SDHItemGenerate: Record "SDH Item Generate")
     var
         Item: Record Item;
-        LibraryInventory: Codeunit "Library - Inventory";
+        LibraryInventory: Codeunit "SDH Library - Inventory";
     begin
         LibraryInventory.CreateItem(Item);
         Item.Rename(SDHItemGenerate."Item No.");
@@ -77,8 +77,8 @@ codeunit 75021 "SDH Item Data Generator"
     var
         ItemJournalLine: Record "Item Journal Line";
         ItemUnitofMeasure: Record "Item Unit of Measure";
-        LibraryInventory: Codeunit "Library - Inventory";
-        LibraryRandom: Codeunit "Library - Random";
+        LibraryInventory: Codeunit "SDH Library - Inventory";
+        LibraryRandom: Codeunit "SDH Library - Random";
         QtyToAdjust: Decimal;
         CostToAdjust: Decimal;
     begin
@@ -112,8 +112,8 @@ codeunit 75021 "SDH Item Data Generator"
         PurchaseHeader: Record "Purchase Header";
         PurchaseLine: Record "Purchase Line";
         ItemUnitofMeasure: Record "Item Unit of Measure";
-        LibraryPurchase: Codeunit "Library - Purchase";
-        LibraryRandom: Codeunit "Library - Random";
+        LibraryPurchase: Codeunit "SDH Library - Purchase";
+        LibraryRandom: Codeunit "SDH Library - Random";
         QtyToPurchase: Decimal;
         CostToPurchase: Decimal;
     begin

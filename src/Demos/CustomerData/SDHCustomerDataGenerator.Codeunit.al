@@ -35,8 +35,8 @@ codeunit 75010 "SDH Customer Data Generator"
     var
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
-        LibrarySales: Codeunit "Library - Sales";
-        LibraryRandom: Codeunit "Library - Random";
+        LibrarySales: Codeunit "SDH Library - Sales";
+        LibraryRandom: Codeunit "SDH Library - Random";
     begin
         LibrarySales.CreateSalesHeader(SalesHeader, Enum::"Sales Document Type"::Order, Customer."No.");
         SalesHeader.Validate("Posting Date", WhichDate);
@@ -53,8 +53,8 @@ codeunit 75010 "SDH Customer Data Generator"
     var
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
-        LibrarySales: Codeunit "Library - Sales";
-        LibraryRandom: Codeunit "Library - Random";
+        LibrarySales: Codeunit "SDH Library - Sales";
+        LibraryRandom: Codeunit "SDH Library - Random";
     begin
         LibrarySales.CreateSalesHeader(SalesHeader, Enum::"Sales Document Type"::Order, Customer."No.");
         SalesHeader.Validate("Posting Date", WhichDate);
